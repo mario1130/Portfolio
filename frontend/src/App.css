@@ -1,38 +1,196 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #00bfff;
+  background: rgba(5, 14, 29, 0.758);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 32px 0 32px 0;
+  box-shadow: none;
+  z-index: 1000;
+  margin: 0;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 101vh;
+  /* padding: 0 40px;   */
+  box-sizing: border-box;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.nav-list {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.lang-select {
+  margin-left: auto;
+  padding: 0.2rem;
+  background: transparent;
+  color: #00bfff;
+  border: none;
+  outline: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.lang-select option {
+  background: #051e3d;
+  color: #00bfff;
+}
+
+.nav-list li {
+  font-size: 1.1rem;
+  color: #fff;
+  transition: color 0.2s;
+}
+
+.nav-list li.active {
+  font-weight: bold;
+  color: #00bfff;
+}
+body.light-mode {
+  background: #fff;
+  color: #222;
+}
+
+/* NAVBAR Y HEADER */
+body.light-mode .main-header {
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+body.light-mode .navbar-title,
+body.light-mode .nav-list li {
+  color: #222;
+}
+
+body.light-mode .nav-list li.active {
+  color: #222;
+  font-weight: bold;
+}
+
+/* HOME */
+body.light-mode .home-container {
+  background: #fff !important;
+  color: #222 !important;
+}
+
+body.light-mode .left-column h1,
+body.light-mode .left-column p {
+  color: #222 !important;
+}
+
+body.light-mode .left-column button,
+body.light-mode .project-buttons button {
+  background: #222 !important;
+  color: #fff !important;
+}
+
+body.light-mode .button1 {
+  background: #fff !important;
+  color: #222 !important;
+  border: #222 solid 2px !important;
+}
+
+body.light-mode .right-column .profile-pic {
+  border: 4px solid #222;
+  background: #fff;
+}
+
+/* ABOUT */
+body.light-mode .about-me-section,
+body.light-mode .about-education,
+body.light-mode .about-tech {
+  background: #fff !important;
+  color: #222 !important;
+}
+
+body.light-mode .about-tech li,
+body.light-mode .about-education li {
+  color: #222 !important;
+}
+
+/* PROJECTS */
+body.light-mode .projects-section {
+  background: #fff !important;
+  color: #222 !important;
+}
+
+body.light-mode .project-card {
+  background: #fff !important;
+  color: #222 !important;
+  border: #222 solid 1px;
+}
+
+body.light-mode .project-card h3 {
+  color: #222 !important;
+}
+
+/* CONTACT */
+body.light-mode .contact-me-section,
+body.light-mode .contact-info,
+body.light-mode .contact-form {
+  background: #fff !important;
+  color: #222 !important;
+}
+
+body.light-mode .contact-info h1,
+body.light-mode .contact-info p,
+body.light-mode .contact-info li {
+  color: #222 !important;
+}
+
+body.light-mode .contact-social a {
+  color: #222 !important;
+}
+
+body.light-mode .contact-form input,
+body.light-mode .contact-form textarea {
+  background: #fff !important;
+  color: #222 !important;
+  border: #222 solid 1px !important;
+}
+
+body.light-mode .contact-form input::placeholder,
+body.light-mode .contact-form textarea::placeholder {
+  color: #888 !important;
+  opacity: 1;
+}
+
+body.light-mode .contact-form button[type="submit"] {
+  background: #222 !important;
+  color: #fff !important;
+  border-color: #222 !important;
+}
+
+/* Otros detalles */
+body.light-mode .education-detail,
+body.light-mode .education-year {
+  color: #222 !important;
+}
+body.light-mode .about-education ul li::marker {
+    color: #222;
+}
+
+body.light-mode .lang-select {
+  color: #222;
 }
