@@ -1,24 +1,112 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Home from "./pages/Home.jsx";
+import { useState } from "react";
+import { FaSun, FaMoon } from "react-icons/fa";
+import React from "react";
+
+const items = [
+  { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
+  { label: "Projects", href: "#projects" },
+  { label: "Contact", href: "#contact" },
+];
 
 function App() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [lang, setLang] = useState("es");
+  const [darkMode, setDarkMode] = useState(true); // Estado para el modo oscuro
+
+  const handleNavigate = (href, index) => {
+    setActiveIndex(index);
+    if (href.startsWith("#")) {
+      const id = href.replace("#", "");
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
+  // Cambia la clase del body según el modo
+  React.useEffect(() => {
+    document.body.className = darkMode ? "dark-mode" : "light-mode";
+  }, [darkMode]);
+
+  // Traducciones simples
+  const translations = {
+    es: {
+      Home: "Inicio",
+      About: "Sobre mí",
+      Projects: "Proyectos",
+      Contact: "Contacto",
+      Portfolio: "Mi Portafolio",
+    },
+    en: {
+      Home: "Home",
+      About: "About",
+      Projects: "Projects",
+      Contact: "Contact",
+      Portfolio: "My Portfolio",
+    },
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      <header className="main-header">
+        <nav className="navbar">
+          <div className="navbar-title">{translations[lang].Portfolio}</div>
+          <ul className="nav-list">
+            {items.map((item, idx) => (
+              <li
+                key={item.label}
+                className={activeIndex === idx ? "active" : ""}
+                onClick={() => handleNavigate(item.href, idx)}
+                style={{ cursor: "pointer" }}
+              >
+                {translations[lang][item.label]}
+              </li>
+            ))}
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "10px",
+                marginLeft: "1rem",
+              }}
+            >
+              <select
+                value={lang}
+                onChange={(e) => setLang(e.target.value)}
+                className="lang-select"
+                aria-label="Select language"
+              >
+                <option value="es">ES</option>
+                <option value="en">EN</option>
+              </select>
+              <button
+                onClick={() => setDarkMode((prev) => !prev)}
+                style={{
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  color: darkMode ? "#00bfff" : "#222",
+                  fontSize: "1.5rem",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  padding: 0,
+                  width: "2.5rem",
+                }}
+                aria-label="Toggle dark mode"
+              >
+                {darkMode ? <FaMoon /> : <FaSun />}
+              </button>
+            </div>
+          </ul>
+        </nav>
       </header>
-    </div>
+      <Home lang={lang} darkMode={darkMode} />
+    </>
   );
 }
 
