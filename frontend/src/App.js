@@ -39,14 +39,24 @@ function App() {
       About: "Sobre mí",
       Projects: "Proyectos",
       Contact: "Contacto",
-      Portfolio: "Mi Portafolio",
+      Portfolio: (
+        <>
+          Mpascv
+          <span style={{ color: "#2196f3" }}>.</span>
+        </>
+      ),
     },
     en: {
       Home: "Home",
       About: "About",
       Projects: "Projects",
       Contact: "Contact",
-      Portfolio: "My Portfolio",
+      Portfolio: (
+        <>
+          Mpascv
+          <span style={{ color: "#2196f3" }}>.</span>
+        </>
+      ),
     },
   };
 
