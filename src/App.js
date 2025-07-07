@@ -14,7 +14,7 @@ const items = [
 function App() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [lang, setLang] = useState("es");
-  const [darkMode, setDarkMode] = useState(true); // Estado para el modo oscuro
+  const [darkMode, setDarkMode] = useState(true); 
 
 const handleNavigate = (href, index) => {
   setActiveIndex(index);
@@ -22,7 +22,7 @@ const handleNavigate = (href, index) => {
     const id = href.replace("#", "");
     const el = document.getElementById(id);
     if (el) {
-      const yOffset = -80; // Ajusta este valor según la altura de tu header
+      const yOffset = -80; 
       const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: "smooth" });
     }
