@@ -141,8 +141,8 @@ function Home({ lang, darkMode }) {
               className="button1"
               onClick={() => {
                 const link = document.createElement("a");
-                link.href = `${process.env.PUBLIC_URL}/CVMario.png`;
-                link.download = "CVMario.png";
+                link.href = `${process.env.PUBLIC_URL}/CVMario.pdf`;
+                link.download = "CVMario.pdf";
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
