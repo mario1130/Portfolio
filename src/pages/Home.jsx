@@ -16,6 +16,7 @@ import { MdDescription } from "react-icons/md";
 import { DiJava } from "react-icons/di";
 import emailjs from "emailjs-com";
 import Swal from "sweetalert2";
+import { EMAILJS_CONFIG } from "../config/emailConfig";
 
 const translations = {
   es: {
@@ -102,10 +103,10 @@ function Home({ lang, darkMode }) {
     e.preventDefault();
     emailjs
       .sendForm(
-        process.env.REACT_APP_EMAILJS_SERVICE_ID,
-        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.TEMPLATE_ID,
         e.target,
-        process.env.REACT_APP_EMAILJS_USER_ID
+        EMAILJS_CONFIG.USER_ID
       )
       .then(
         () => {
