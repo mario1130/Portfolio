@@ -93,13 +93,11 @@ const translations = {
     send: "Send",
   },
 };
-
 function Home({ lang, darkMode }) {
   const t = translations[lang];
   const iconColor = darkMode ? "#00bfff" : "#fff";
   const button1IconColor = darkMode ? "#00bfff" : "#fff";
 
-  // Handler para enviar el formulario con EmailJS
   const handleSubmit = (e) => {
     e.preventDefault();
     emailjs
@@ -110,7 +108,7 @@ function Home({ lang, darkMode }) {
         process.env.REACT_APP_EMAILJS_USER_ID
       )
       .then(
-        (result) => {
+        () => {
           Swal.fire({
             icon: "success",
             title: "¡Mensaje enviado!",
@@ -118,7 +116,7 @@ function Home({ lang, darkMode }) {
             confirmButtonColor: "#2196f3",
           });
         },
-        (error) => {
+        () => {
           Swal.fire({
             icon: "error",
             title: "Error",
@@ -142,7 +140,7 @@ function Home({ lang, darkMode }) {
               className="button1"
               onClick={() => {
                 const link = document.createElement("a");
-                link.href = "./CVMario.png";
+                link.href = `${process.env.PUBLIC_URL}/CVMario.png`;
                 link.download = "CVMario.png";
                 document.body.appendChild(link);
                 link.click();
@@ -182,7 +180,7 @@ function Home({ lang, darkMode }) {
         </div>
         <div className="right-column">
           <div className="profile-pic morphing-border">
-            <img src="/perfil.png" alt="Tu Foto" />
+            <img src={`${process.env.PUBLIC_URL}/perfil.png`} alt="Tu Foto" />
           </div>
         </div>
       </div>
@@ -272,7 +270,7 @@ function Home({ lang, darkMode }) {
                   rel="noopener noreferrer"
                 >
                   <button className="button1">
-                    {t.code}{" "}
+                    {t.code}
                     <MdDescription
                       size={24}
                       style={{
@@ -289,7 +287,7 @@ function Home({ lang, darkMode }) {
                   rel="noopener noreferrer"
                 >
                   <button>
-                    {t.demo}{" "}
+                    {t.demo}
                     <FiExternalLink
                       size={24}
                       style={{ marginLeft: "4px", verticalAlign: "middle" }}
@@ -298,9 +296,13 @@ function Home({ lang, darkMode }) {
                 </a>
               </div>
             </div>
+
             {/* Proyecto 2 */}
             <div className="project-card">
-              <img src="./Microservicio.PNG" alt={t.project2} />
+              <img
+                src={`${process.env.PUBLIC_URL}/Microservicio.PNG`}
+                alt={t.project2}
+              />
               <h3>{t.project2}</h3>
               <p>{t.project2Desc}</p>
               <div className="project-buttons">
@@ -310,7 +312,7 @@ function Home({ lang, darkMode }) {
                   rel="noopener noreferrer"
                 >
                   <button className="button1">
-                    {t.code}{" "}
+                    {t.code}
                     <MdDescription
                       size={24}
                       style={{
@@ -327,7 +329,7 @@ function Home({ lang, darkMode }) {
                   rel="noopener noreferrer"
                 >
                   <button>
-                    {t.demo}{" "}
+                    {t.demo}
                     <FiExternalLink
                       size={24}
                       style={{ marginLeft: "4px", verticalAlign: "middle" }}
@@ -336,9 +338,13 @@ function Home({ lang, darkMode }) {
                 </a>
               </div>
             </div>
+
             {/* Proyecto 3 */}
             <div className="project-card">
-              <img src="./Portfolio.PNG" alt={t.project2} />
+              <img
+                src={`${process.env.PUBLIC_URL}/Portfolio.PNG`}
+                alt={t.project3}
+              />
               <h3>{t.project3}</h3>
               <p>{t.project3Desc}</p>
               <div className="project-buttons">
@@ -348,7 +354,7 @@ function Home({ lang, darkMode }) {
                   rel="noopener noreferrer"
                 >
                   <button className="button1">
-                    {t.code}{" "}
+                    {t.code}
                     <MdDescription
                       size={24}
                       style={{
@@ -365,7 +371,7 @@ function Home({ lang, darkMode }) {
                   rel="noopener noreferrer"
                 >
                   <button>
-                    {t.demo}{" "}
+                    {t.demo}
                     <FiExternalLink
                       size={24}
                       style={{ marginLeft: "4px", verticalAlign: "middle" }}
@@ -390,7 +396,7 @@ function Home({ lang, darkMode }) {
                     color={iconColor}
                     size={32}
                     style={{ verticalAlign: "middle" }}
-                  />{" "}
+                  />
                   <span
                     style={{
                       color: darkMode ? "#fff" : "#222",
@@ -405,7 +411,7 @@ function Home({ lang, darkMode }) {
                     color={iconColor}
                     size={32}
                     style={{ verticalAlign: "middle" }}
-                  />{" "}
+                  />
                   <span
                     style={{
                       color: darkMode ? "#fff" : "#222",
