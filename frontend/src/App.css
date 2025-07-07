@@ -115,18 +115,25 @@ body.light-mode .right-column .profile-pic {
   border: 4px solid #222;
   background: #fff;
 }
+body.light-mode .about-education ul li {
+  color: #ffffff !important;
+}
+
+body.light-mode .about-education ul li::marker {
+  color: #ffffff !important;
+}
 
 /* ABOUT */
 body.light-mode .about-me-section,
 body.light-mode .about-education,
 body.light-mode .about-tech {
-  background: #fff !important;
-  color: #222 !important;
+  background: #000000 !important;
+  color: #ffffff !important;
 }
 
 body.light-mode .about-tech li,
 body.light-mode .about-education li {
-  color: #222 !important;
+  color: #ffffff !important;
 }
 
 /* PROJECTS */
@@ -146,27 +153,33 @@ body.light-mode .project-card h3 {
 }
 
 /* CONTACT */
+
+body.light-mode .contact-info ul li span {
+  color: #ffffff !important;
+}
+
+
 body.light-mode .contact-me-section,
 body.light-mode .contact-info,
 body.light-mode .contact-form {
-  background: #fff !important;
-  color: #222 !important;
+  background: #000000 !important;
+  color: #ffffff !important;
 }
 
 body.light-mode .contact-info h1,
 body.light-mode .contact-info p,
 body.light-mode .contact-info li {
-  color: #222 !important;
+  color: #ffffff !important;
 }
 
 body.light-mode .contact-social a {
-  color: #222 !important;
+  color: #ffffff !important;
 }
 
 body.light-mode .contact-form input,
 body.light-mode .contact-form textarea {
   background: #fff !important;
-  color: #222 !important;
+  color: #ffffff !important;
   border: #222 solid 1px !important;
 }
 
@@ -177,18 +190,15 @@ body.light-mode .contact-form textarea::placeholder {
 }
 
 body.light-mode .contact-form button[type="submit"] {
-  background: #222 !important;
-  color: #fff !important;
+  background: #ffffff !important;
+  color: #000000 !important;
   border-color: #222 !important;
 }
 
 /* Otros detalles */
 body.light-mode .education-detail,
 body.light-mode .education-year {
-  color: #222 !important;
-}
-body.light-mode .about-education ul li::marker {
-    color: #222;
+  color: #ffffff !important;
 }
 
 body.light-mode .lang-select {

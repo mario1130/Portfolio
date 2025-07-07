@@ -14,6 +14,8 @@ import {
 import { FiExternalLink, FiArrowRight } from "react-icons/fi";
 import { MdDescription } from "react-icons/md";
 import { DiJava } from "react-icons/di";
+import emailjs from "emailjs-com";
+import Swal from "sweetalert2";
 
 const translations = {
   es: {
@@ -23,13 +25,13 @@ const translations = {
     portfolio: "Portafolio",
     aboutMe: "Sobre mí",
     aboutText:
-      "Soy un desarrollador apasionado por la tecnología y el aprendizaje continuo. Me especializo en crear soluciones eficientes y atractivas.",
+      "Desarrollador de aplicaciones web recién titulado, con experiencia en backend usando Node.js, JavaScript, Docker y RabbitMQ. He trabajado en la integración y escalabilidad de microservicios durante mis prácticas en IC Grupo, y también he desarrollado proyectos con PHP, Laravel, HTML, CSS y React. Soy una persona comprometida y con muchas ganas de seguir aprendiendo y creciendo profesionalmente en el sector del desarrollo de software.",
     education: "Educación:",
-    degree: "Ingeniería en Informática",
-    university: "Universidad Complutense de Madrid",
-    degreeYears: "2018 - 2022",
-    course: "Curso de React",
-    coursePlatform: "Udemy",
+    degree: "Técnico en Desarrollo de Aplicaciones web.",
+    university: "ITEC | Centro Oficial de FP",
+    degreeYears: "2023 - 2025",
+    course: "Programación de sistemas informáticos.",
+    coursePlatform: "CESUR Málaga",
     courseYear: "2023",
     techStack: "Tech Stack:",
     projects: "Proyectos",
@@ -39,12 +41,15 @@ const translations = {
     project2: "Proyecto Dos",
     project2Desc:
       "Breve descripción del proyecto dos. Explica de qué trata y qué tecnologías usaste.",
+    project3: "Proyecto Tres",
+    project3Desc:
+      "Breve descripción del proyecto dos. Explica de qué trata y qué tecnologías usaste.",
     code: "Código",
     demo: "Demo",
     info: "Información",
     myInfo: "Mi información",
-    email: "tuemail@gmail.com",
-    phone: "+34 600 000 000",
+    email: "pascualmedinamario@gmail.com",
+    phone: "+34 671 119 596",
     name: "Nombre",
     gmail: "Correo",
     message: "Mensaje",
@@ -88,8 +93,39 @@ const translations = {
 
 function Home({ lang, darkMode }) {
   const t = translations[lang];
-  const iconColor = darkMode ? "#00bfff" : "#222";
+  const iconColor = darkMode ? "#00bfff" : "#fff";
   const button1IconColor = darkMode ? "#00bfff" : "#fff";
+
+  // Handler para enviar el formulario con EmailJS
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    emailjs
+      .sendForm(
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        e.target,
+        process.env.REACT_APP_EMAILJS_USER_ID
+      )
+      .then(
+        (result) => {
+          Swal.fire({
+            icon: "success",
+            title: "¡Mensaje enviado!",
+            text: "Gracias por contactarme. Te responderé pronto.",
+            confirmButtonColor: "#2196f3",
+          });
+        },
+        (error) => {
+          Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: "Error al enviar el mensaje.",
+            confirmButtonColor: "#e53935",
+          });
+        }
+      );
+    e.target.reset();
+  };
 
   return (
     <div className="home-container" id="home">
@@ -97,6 +133,7 @@ function Home({ lang, darkMode }) {
         <div className="left-column">
           <p>{t.greeting}</p>
           <h1>{t.developer}</h1>
+          <p>{t.greeting}</p>
           <div className="buttons">
             <button className="button1">
               {t.resume}{" "}
@@ -109,7 +146,19 @@ function Home({ lang, darkMode }) {
                 }}
               />
             </button>
-            <button>
+            <button
+              onClick={() => {
+                const aboutSection = document.getElementById("about");
+                if (aboutSection) {
+                  const yOffset = -80;
+                  const y =
+                    aboutSection.getBoundingClientRect().top +
+                    window.pageYOffset +
+                    yOffset;
+                  window.scrollTo({ top: y, behavior: "smooth" });
+                }
+              }}
+            >
               {t.portfolio}{" "}
               <FiArrowRight
                 size={24}
@@ -118,11 +167,11 @@ function Home({ lang, darkMode }) {
             </button>
           </div>
         </div>
-<div className="right-column">
-  <div className="profile-pic morphing-border">
-    <img src="/perfil.png" alt="Tu Foto" />
-  </div>
-</div>
+        <div className="right-column">
+          <div className="profile-pic morphing-border">
+            <img src="/perfil.png" alt="Tu Foto" />
+          </div>
+        </div>
       </div>
 
       <section className="about-me-section" id="about">
@@ -181,7 +230,11 @@ function Home({ lang, darkMode }) {
                   <div>Git</div>
                 </li>
                 <li>
-                  <FaGithub size={46} color="black" />
+                  <FaGithub
+                    color={darkMode ? "black" : "white"}
+                    size={46}
+                    style={{ verticalAlign: "middle" }}
+                  />
                   <div>GitHub</div>
                 </li>
               </ul>
@@ -206,7 +259,7 @@ function Home({ lang, darkMode }) {
                   rel="noopener noreferrer"
                 >
                   <button className="button1">
-                    {t.resume}{" "}
+                    {t.code}{" "}
                     <MdDescription
                       size={24}
                       style={{
@@ -234,17 +287,17 @@ function Home({ lang, darkMode }) {
             </div>
             {/* Proyecto 2 */}
             <div className="project-card">
-              <img src="https://via.placeholder.com/300x180" alt={t.project2} />
+              <img src="./Microservicio.PNG" alt={t.project2} />
               <h3>{t.project2}</h3>
               <p>{t.project2Desc}</p>
               <div className="project-buttons">
                 <a
-                  href="https://github.com/usuario/proyecto1"
+                  href="https://github.com/mario1130/Microservicio_Login"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <button className="button1">
-                    {t.resume}{" "}
+                    {t.code}{" "}
                     <MdDescription
                       size={24}
                       style={{
@@ -256,7 +309,7 @@ function Home({ lang, darkMode }) {
                   </button>
                 </a>
                 <a
-                  href="https://demo-proyecto1.com"
+                  href="https://github.com/mario1130/Microservicio_Login"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -272,17 +325,17 @@ function Home({ lang, darkMode }) {
             </div>
             {/* Proyecto 3 */}
             <div className="project-card">
-              <img src="https://via.placeholder.com/300x180" alt={t.project2} />
+              <img src="./Portfolio.PNG" alt={t.project2} />
               <h3>{t.project2}</h3>
               <p>{t.project2Desc}</p>
               <div className="project-buttons">
                 <a
-                  href="https://github.com/usuario/proyecto1"
+                  href="https://github.com/mario1130/Portfolio"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <button className="button1">
-                    {t.resume}{" "}
+                    {t.code}{" "}
                     <MdDescription
                       size={24}
                       style={{
@@ -352,7 +405,7 @@ function Home({ lang, darkMode }) {
                 <li>
                   <div className="contact-social">
                     <a
-                      href="https://github.com/tuusuario"
+                      href="https://github.com/mario1130"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -363,7 +416,7 @@ function Home({ lang, darkMode }) {
                       />
                     </a>
                     <a
-                      href="https://linkedin.com/in/tuusuario"
+                      href="https://www.linkedin.com/in/mario-pascual-427399164"
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{ marginLeft: "5px" }}
@@ -379,7 +432,7 @@ function Home({ lang, darkMode }) {
               </ul>
             </div>
             <div className="contact-form">
-              <form>
+              <form onSubmit={handleSubmit}>
                 <div className="form-group">
                   <label htmlFor="nombre">{t.name}</label>
                   <input
