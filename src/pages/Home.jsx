@@ -38,7 +38,7 @@ const translations = {
     projects: "Proyectos",
     project1: "Artify3D",
     project1Desc:
-      "Breve descripción del proyecto uno. Explica de qué trata y qué tecnologías usaste.",
+      "Proyecto final de curso dedicado a la creación y visualización de modelos 3D interactivos.",
     project2: "Microservicio de Login (Backend)",
     project2Desc:
       "Microservicio de autenticación y gestión de usuarios. Modular, escalable y dockerizado.",
@@ -261,12 +261,15 @@ function Home({ lang, darkMode }) {
           <div className="projects-columns">
             {/* Proyecto 1 */}
             <div className="project-card">
-              <img src="https://via.placeholder.com/300x180" alt={t.project1} />
+                            <img
+                src={`${process.env.PUBLIC_URL}/Artify3d.PNG`}
+                alt={t.project2}
+              />
               <h3>{t.project1}</h3>
               <p>{t.project1Desc}</p>
               <div className="project-buttons">
                 <a
-                  href="https://github.com/usuario/proyecto1"
+                  href="https://github.com/mario1130/Artify3D"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -283,7 +286,7 @@ function Home({ lang, darkMode }) {
                   </button>
                 </a>
                 <a
-                  href="https://demo-proyecto1.com"
+                  href="https://github.com/mario1130/Artify3D"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -367,7 +370,7 @@ function Home({ lang, darkMode }) {
                   </button>
                 </a>
                 <a
-                  href="https://demo-proyecto1.com"
+                  href="https://mario1130.github.io/Portfolio/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
