@@ -16,16 +16,18 @@ function App() {
   const [lang, setLang] = useState("es");
   const [darkMode, setDarkMode] = useState(true); // Estado para el modo oscuro
 
-  const handleNavigate = (href, index) => {
-    setActiveIndex(index);
-    if (href.startsWith("#")) {
-      const id = href.replace("#", "");
-      const el = document.getElementById(id);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth" });
-      }
+const handleNavigate = (href, index) => {
+  setActiveIndex(index);
+  if (href.startsWith("#")) {
+    const id = href.replace("#", "");
+    const el = document.getElementById(id);
+    if (el) {
+      const yOffset = -80; // Ajusta este valor según la altura de tu header
+      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
     }
-  };
+  }
+};
 
   // Cambia la clase del body según el modo
   React.useEffect(() => {
