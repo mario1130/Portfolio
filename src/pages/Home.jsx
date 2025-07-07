@@ -35,15 +35,15 @@ const translations = {
     courseYear: "2023",
     techStack: "Tech Stack:",
     projects: "Proyectos",
-    project1: "Proyecto Uno",
+    project1: "Artify3D",
     project1Desc:
       "Breve descripción del proyecto uno. Explica de qué trata y qué tecnologías usaste.",
-    project2: "Proyecto Dos",
+    project2: "Microservicio de Login (Backend)",
     project2Desc:
-      "Breve descripción del proyecto dos. Explica de qué trata y qué tecnologías usaste.",
-    project3: "Proyecto Tres",
+      "Microservicio de autenticación y gestión de usuarios. Modular, escalable y dockerizado.",
+    project3: "Portfolio",
     project3Desc:
-      "Breve descripción del proyecto dos. Explica de qué trata y qué tecnologías usaste.",
+      "Portfolio personal desarrollado con React, donde muestro mis proyectos, habilidades y experiencia.",
     code: "Código",
     demo: "Demo",
     info: "Información",
@@ -62,30 +62,33 @@ const translations = {
     portfolio: "Portfolio",
     aboutMe: "About Me",
     aboutText:
-      "I'm a developer passionate about technology and continuous learning. I specialize in creating efficient and attractive solutions.",
+      "Recently graduated web application developer with experience in backend using Node.js, JavaScript, Docker, and RabbitMQ. During my internship at IC Grupo, I worked on microservices integration and scalability. I have also developed projects using PHP, Laravel, HTML, CSS, and React. I'm a committed person with a strong desire to continue learning and growing professionally in the software development field.",
     education: "Education:",
-    degree: "Computer Engineering",
-    university: "Complutense University of Madrid",
-    degreeYears: "2018 - 2022",
-    course: "React Course",
-    coursePlatform: "Udemy",
+    degree: "Technician in Web Application Development",
+    university: "ITEC | Official Vocational Training Center",
+    degreeYears: "2023 - 2025",
+    course: "Computer Systems Programming",
+    coursePlatform: "CESUR Málaga",
     courseYear: "2023",
     techStack: "Tech Stack:",
     projects: "Projects",
-    project1: "Project One",
+    project1: "Artify3D",
     project1Desc:
-      "Brief description of project one. Explain what it is about and what technologies you used.",
-    project2: "Project Two",
+      "Brief description of the first project. Explain what it is about and what technologies you used.",
+    project2: "Login Microservice (Backend)",
     project2Desc:
-      "Brief description of project two. Explain what it is about and what technologies you used.",
+      "Authentication and user management microservice. Modular, scalable, and dockerized.",
+    project3: "Portfolio",
+    project3Desc:
+      "Personal portfolio developed with React, showcasing my projects, skills, and experience.",
     code: "Code",
     demo: "Demo",
     info: "Information",
-    myInfo: "My information",
-    email: "yourmail@gmail.com",
-    phone: "+34 600 000 000",
+    myInfo: "My Information",
+    email: "pascualmedinamario@gmail.com",
+    phone: "+34 671 119 596",
     name: "Name",
-    gmail: "Gmail",
+    gmail: "Email",
     message: "Message",
     send: "Send",
   },
@@ -135,7 +138,17 @@ function Home({ lang, darkMode }) {
           <h1>{t.developer}</h1>
           <p>{t.greeting}</p>
           <div className="buttons">
-            <button className="button1">
+            <button
+              className="button1"
+              onClick={() => {
+                const link = document.createElement("a");
+                link.href = "./CVMario.png";
+                link.download = "CVMario.png";
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }}
+            >
               {t.resume}{" "}
               <MdDescription
                 size={24}
@@ -326,8 +339,8 @@ function Home({ lang, darkMode }) {
             {/* Proyecto 3 */}
             <div className="project-card">
               <img src="./Portfolio.PNG" alt={t.project2} />
-              <h3>{t.project2}</h3>
-              <p>{t.project2Desc}</p>
+              <h3>{t.project3}</h3>
+              <p>{t.project3Desc}</p>
               <div className="project-buttons">
                 <a
                   href="https://github.com/mario1130/Portfolio"
