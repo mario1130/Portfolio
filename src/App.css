@@ -158,7 +158,6 @@ body.light-mode .contact-info ul li span {
   color: #ffffff !important;
 }
 
-
 body.light-mode .contact-me-section,
 body.light-mode .contact-info,
 body.light-mode .contact-form {
@@ -203,4 +202,172 @@ body.light-mode .education-year {
 
 body.light-mode .lang-select {
   color: #222;
+}
+
+body.light-mode .nav-list.open select.lang-select {
+  background-color: white !important;
+  color: black !important;
+  border: 1px solid black !important;
+}
+
+body.light-mode .nav-list.open select.lang-select option {
+  background-color: white !important;
+  color: black !important;
+}
+
+body.light-mode select.lang-select option {
+  background-color: white !important;
+  color: black !important;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #00bfff;
+  cursor: pointer;
+}
+
+.desktop-only {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-left: 1rem;
+}
+
+.mobile-only {
+  display: none;
+}
+
+.dark-mode-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  width: 2.5rem;
+  color: inherit;
+}
+
+/* Oculta en móvil los controles dentro del menú */
+.desktop-inline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none;
+  }
+  .nav-list {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-title {
+    margin-left: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    background: rgba(5, 14, 29, 0.9);
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0 0 8px 8px;
+    box-sizing: border-box;
+    z-index: 1100;
+  }
+
+  .nav-list.open {
+    display: flex;
+  }
+
+  .nav-list li {
+    font-size: 1.2rem;
+    padding: 0.5rem 0;
+  }
+
+  .nav-list > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .lang-select {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
+
+  .mobile-only {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0px;
+    padding: 0rem 0.5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .desktop-inline {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  body.light-mode .nav-list.open {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  body.light-mode .nav-list.open li {
+    color: #000 !important;
+  }
+
+  body.light-mode .nav-list.open li.active {
+    color: #00bfff !important;
+  }
+
+  body.light-mode .nav-list.open .lang-select {
+    background: #fff !important;
+    color: #000 !important;
+    border: 1px solid #ccc;
+  }
+
+  body.light-mode .nav-list.open .lang-select option {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  body.light-mode .nav-list.open .dark-mode-toggle {
+    color: #000 !important;
+  }
+  body.light-mode .menu-toggle {
+    color: #000;
+  }
+  body.light-mode .nav-list.open li.active {
+    color: #000 !important;
+    font-weight: bold;
+  }
 }

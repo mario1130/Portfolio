@@ -1,6 +1,6 @@
 import "./App.css";
 import Home from "./pages/Home.jsx";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaSun, FaMoon } from "react-icons/fa";
 import React from "react";
 
@@ -14,23 +14,26 @@ const items = [
 function App() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [lang, setLang] = useState("es");
-  const [darkMode, setDarkMode] = useState(true); 
+  const [darkMode, setDarkMode] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-const handleNavigate = (href, index) => {
-  setActiveIndex(index);
-  if (href.startsWith("#")) {
-    const id = href.replace("#", "");
-    const el = document.getElementById(id);
-    if (el) {
-      const yOffset = -80; 
-      const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: "smooth" });
+  const handleNavigate = (href, index) => {
+    setActiveIndex(index);
+    setMenuOpen(false); // cerrar menú al navegar
+
+    if (href.startsWith("#")) {
+      const id = href.replace("#", "");
+      const el = document.getElementById(id);
+      if (el) {
+        const yOffset = -80;
+        const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: "smooth" });
+      }
     }
-  }
-};
+  };
 
   // Cambia la clase del body según el modo
-  React.useEffect(() => {
+  useEffect(() => {
     document.body.className = darkMode ? "dark-mode" : "light-mode";
   }, [darkMode]);
 
@@ -67,7 +70,14 @@ const handleNavigate = (href, index) => {
       <header className="main-header">
         <nav className="navbar">
           <div className="navbar-title">{translations[lang].Portfolio}</div>
-          <ul className="nav-list">
+          <button
+            className="menu-toggle"
+            onClick={() => setMenuOpen((prev) => !prev)}
+            aria-label="Toggle menu"
+          >
+            ☰
+          </button>
+          <ul className={`nav-list ${menuOpen ? "open" : "closed"}`}>
             {items.map((item, idx) => (
               <li
                 key={item.label}
@@ -78,14 +88,9 @@ const handleNavigate = (href, index) => {
                 {translations[lang][item.label]}
               </li>
             ))}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "10px",
-                marginLeft: "1rem",
-              }}
-            >
+
+            {/* Solo visible en escritorio */}
+            <li className="desktop-inline">
               <select
                 value={lang}
                 onChange={(e) => setLang(e.target.value)}
@@ -97,25 +102,41 @@ const handleNavigate = (href, index) => {
               </select>
               <button
                 onClick={() => setDarkMode((prev) => !prev)}
-                style={{
-                  background: "none",
-                  border: "none",
-                  cursor: "pointer",
-                  color: darkMode ? "#00bfff" : "#222",
-                  fontSize: "1.5rem",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  padding: 0,
-                  width: "2.5rem",
-                }}
+                className="dark-mode-toggle"
                 aria-label="Toggle dark mode"
               >
-                {darkMode ? <FaMoon /> : <FaSun />}
+                {darkMode ? (
+                  <FaMoon style={{ color: "#00bfff" }} />
+                ) : (
+                  <FaSun style={{ color: "#222" }} />
+                )}
               </button>
-            </div>
+            </li>
           </ul>
         </nav>
+        {/* Mobile only controls */}
+        <div className="navbar-controls mobile-only">
+          <select
+            value={lang}
+            onChange={(e) => setLang(e.target.value)}
+            className="lang-select"
+            aria-label="Select language"
+          >
+            <option value="es">ES</option>
+            <option value="en">EN</option>
+          </select>
+          <button
+            onClick={() => setDarkMode((prev) => !prev)}
+            className="dark-mode-toggle"
+            aria-label="Toggle dark mode"
+          >
+            {darkMode ? (
+              <FaMoon style={{ color: "#00bfff" }} /> // azul brillante
+            ) : (
+              <FaSun style={{ color: "#222" }} />
+            )}
+          </button>
+        </div>
       </header>
       <Home lang={lang} darkMode={darkMode} />
     </>
