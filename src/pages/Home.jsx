@@ -21,7 +21,7 @@ import {
   SiReact,
   SiJavascript,
   SiNodedotjs,
-  SiPython,
+  // SiPython,
   SiKotlin,
 } from "react-icons/si";
 
@@ -334,8 +334,8 @@ function Home({ lang, darkMode }) {
                 Node.js
               </span>
               <span className="language-badge python">
-                <SiPython style={{ marginRight: "6px", verticalAlign: "middle" }} />
-                Python
+                <SiJavascript style={{ marginRight: "6px", verticalAlign: "middle" }} />
+                JavaScript
               </span>
             </div>
             <p>{t.project2Desc}</p>
