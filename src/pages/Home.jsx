@@ -23,6 +23,7 @@ import {
   SiNodedotjs,
   // SiPython,
   SiKotlin,
+  SiPhp,
 } from "react-icons/si";
 
 const translations = {
@@ -150,8 +151,8 @@ function Home({ lang, darkMode }) {
         <div className="left-column">
           <p>{t.greeting}</p>
           <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-300 to-blue-800 bg-clip-text text-transparent">
-  {t.developer}
-</h1>
+            {t.developer}
+          </h1>
           <p>{t.text}</p>
           <div className="buttons">
             <button
@@ -272,33 +273,209 @@ function Home({ lang, darkMode }) {
         </div>
       </section>
 
-<section className="projects-section" id="projects">
-      <div className="projects-content">
-        <h2>{t.projects}</h2>
-        <div className="projects-columns">
-
-          {/* Proyecto 1 */}
-          <div className="project-card">
-            <img
-              src={`${process.env.PUBLIC_URL}/Artify3d.PNG`}
-              alt={t.project1}
-            />
-            <h3>{t.project1}</h3>
-            <div className="project-languages">
-              <span className="language-badge react">
-                <SiReact style={{ marginRight: "6px", verticalAlign: "middle" }} />
-                React
-              </span>
-              <span className="language-badge js">
-                <SiJavascript style={{ marginRight: "6px", verticalAlign: "middle" }} />
-                JavaScript
-              </span>
+      <section className="projects-section" id="projects">
+        <div className="projects-content">
+          <h2>{t.projects}</h2>
+          <div className="projects-columns">
+            {/* Proyecto 1 */}
+            <div className="project-card">
+              <img
+                src={`${process.env.PUBLIC_URL}/Artify3d.PNG`}
+                alt={t.project1}
+              />
+              <h3>{t.project1}</h3>
+              <div className="project-languages">
+                <span className="language-badge react">
+                  <SiReact
+                    style={{ marginRight: "6px", verticalAlign: "middle" }}
+                  />
+                  React
+                </span>
+                <span className="language-badge js">
+                  <SiJavascript
+                    style={{ marginRight: "6px", verticalAlign: "middle" }}
+                  />
+                  JavaScript
+                </span>
+                <span className="language-badge php">
+                  <SiPhp
+                    style={{ marginRight: "6px", verticalAlign: "middle" }}
+                  />
+                  PHP
+                </span>
+              </div>
+              <p>{t.project1Desc}</p>
+              <div className="project-buttons">
+                <a
+                  href="https://github.com/mario1130/Artify3D"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button className="button1">
+                    {t.code}
+                    <MdDescription
+                      size={24}
+                      style={{
+                        color: button1IconColor,
+                        marginLeft: "4px",
+                        verticalAlign: "middle",
+                      }}
+                    />
+                  </button>
+                </a>
+                <a
+                  href="https://github.com/mario1130/Artify3D"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button>
+                    {t.demo}
+                    <FiExternalLink
+                      size={24}
+                      style={{ marginLeft: "4px", verticalAlign: "middle" }}
+                    />
+                  </button>
+                </a>
+              </div>
             </div>
-            <p>{t.project1Desc}</p>
-            <div className="project-buttons">
-              <a href="https://github.com/mario1130/Artify3D" target="_blank" rel="noopener noreferrer">
-                <button className="button1">
-                  {t.code}
+
+            {/* Proyecto 2 */}
+            <div className="project-card">
+              <img
+                src={`${process.env.PUBLIC_URL}/Microservicio.PNG`}
+                alt={t.project2}
+              />
+              <h3>{t.project2}</h3>
+              <div className="project-languages">
+                <span className="language-badge node">
+                  <SiNodedotjs
+                    style={{ marginRight: "6px", verticalAlign: "middle" }}
+                  />
+                  Node.js
+                </span>
+                <span className="language-badge js">
+                  <SiJavascript
+                    style={{ marginRight: "6px", verticalAlign: "middle" }}
+                  />
+                  JavaScript
+                </span>
+              </div>
+              <p>{t.project2Desc}</p>
+              <div className="project-buttons">
+                <a
+                  href="https://github.com/mario1130/Microservicio_Login"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button className="button1">
+                    {t.code}
+                    <MdDescription
+                      size={24}
+                      style={{
+                        color: button1IconColor,
+                        marginLeft: "4px",
+                        verticalAlign: "middle",
+                      }}
+                    />
+                  </button>
+                </a>
+                <a
+                  href="https://github.com/mario1130/Microservicio_Login"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button>
+                    {t.demo}
+                    <FiExternalLink
+                      size={24}
+                      style={{ marginLeft: "4px", verticalAlign: "middle" }}
+                    />
+                  </button>
+                </a>
+              </div>
+            </div>
+
+            {/* Proyecto 3 */}
+            <div className="project-card">
+              <img
+                src={`${process.env.PUBLIC_URL}/Portfolio.PNG`}
+                alt={t.project3}
+              />
+              <h3>{t.project3}</h3>
+              <div className="project-languages">
+                <span className="language-badge react">
+                  <SiReact
+                    style={{ marginRight: "6px", verticalAlign: "middle" }}
+                  />
+                  React
+                </span>
+                <span className="language-badge js">
+                  <SiJavascript
+                    style={{ marginRight: "6px", verticalAlign: "middle" }}
+                  />
+                  JavaScript
+                </span>
+              </div>
+              <p>{t.project3Desc}</p>
+              <div className="project-buttons">
+                <a
+                  href="https://github.com/mario1130/Portfolio"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button className="button1">
+                    {t.code}
+                    <MdDescription
+                      size={24}
+                      style={{
+                        color: button1IconColor,
+                        marginLeft: "4px",
+                        verticalAlign: "middle",
+                      }}
+                    />
+                  </button>
+                </a>
+                <a
+                  href="https://mario1130.github.io/Portfolio/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <button>
+                    {t.demo}
+                    <FiExternalLink
+                      size={24}
+                      style={{ marginLeft: "4px", verticalAlign: "middle" }}
+                    />
+                  </button>
+                </a>
+              </div>
+            </div>
+
+            {/* Proyecto 4 - En construcción */}
+            <div className="project-card">
+              <img
+                src={`${process.env.PUBLIC_URL}/loading.gif`}
+                alt="En construcción"
+                style={{ height: "133px", width: "50%", objectFit: "cover" }}
+              />
+              <h3>{t.project4}</h3>
+              <div className="project-languages">
+                <span className="language-badge kotlin">
+                  <SiKotlin
+                    style={{ marginRight: "6px", verticalAlign: "middle" }}
+                  />
+                  Kotlin
+                </span>
+              </div>
+              <p>{t.project4Desc}</p>
+              <div className="project-buttons">
+                <button
+                  className="button1"
+                  disabled
+                  style={{ cursor: "not-allowed" }}
+                  title="Proyecto en construcción"
+                >
+                  Código
                   <MdDescription
                     size={24}
                     style={{
@@ -308,147 +485,22 @@ function Home({ lang, darkMode }) {
                     }}
                   />
                 </button>
-              </a>
-              <a href="https://github.com/mario1130/Artify3D" target="_blank" rel="noopener noreferrer">
-                <button>
-                  {t.demo}
+                <button
+                  disabled
+                  style={{ cursor: "not-allowed", marginLeft: "8px" }}
+                  title="Proyecto en construcción"
+                >
+                  Demo
                   <FiExternalLink
                     size={24}
                     style={{ marginLeft: "4px", verticalAlign: "middle" }}
                   />
                 </button>
-              </a>
+              </div>
             </div>
           </div>
-
-          {/* Proyecto 2 */}
-          <div className="project-card">
-            <img
-              src={`${process.env.PUBLIC_URL}/Microservicio.PNG`}
-              alt={t.project2}
-            />
-            <h3>{t.project2}</h3>
-            <div className="project-languages">
-              <span className="language-badge node">
-                <SiNodedotjs style={{ marginRight: "6px", verticalAlign: "middle" }} />
-                Node.js
-              </span>
-              <span className="language-badge python">
-                <SiJavascript style={{ marginRight: "6px", verticalAlign: "middle" }} />
-                JavaScript
-              </span>
-            </div>
-            <p>{t.project2Desc}</p>
-            <div className="project-buttons">
-              <a href="https://github.com/mario1130/Microservicio_Login" target="_blank" rel="noopener noreferrer">
-                <button className="button1">
-                  {t.code}
-                  <MdDescription
-                    size={24}
-                    style={{
-                      color: button1IconColor,
-                      marginLeft: "4px",
-                      verticalAlign: "middle",
-                    }}
-                  />
-                </button>
-              </a>
-              <a href="https://github.com/mario1130/Microservicio_Login" target="_blank" rel="noopener noreferrer">
-                <button>
-                  {t.demo}
-                  <FiExternalLink
-                    size={24}
-                    style={{ marginLeft: "4px", verticalAlign: "middle" }}
-                  />
-                </button>
-              </a>
-            </div>
-          </div>
-
-          {/* Proyecto 3 */}
-          <div className="project-card">
-            <img
-              src={`${process.env.PUBLIC_URL}/Portfolio.PNG`}
-              alt={t.project3}
-            />
-            <h3>{t.project3}</h3>
-            <div className="project-languages">
-              <span className="language-badge react">
-                <SiReact style={{ marginRight: "6px", verticalAlign: "middle" }} />
-                React
-              </span>
-              <span className="language-badge js">
-                <SiJavascript style={{ marginRight: "6px", verticalAlign: "middle" }} />
-                JavaScript
-              </span>
-            </div>
-            <p>{t.project3Desc}</p>
-            <div className="project-buttons">
-              <a href="https://github.com/mario1130/Portfolio" target="_blank" rel="noopener noreferrer">
-                <button className="button1">
-                  {t.code}
-                  <MdDescription
-                    size={24}
-                    style={{
-                      color: button1IconColor,
-                      marginLeft: "4px",
-                      verticalAlign: "middle",
-                    }}
-                  />
-                </button>
-              </a>
-              <a href="https://mario1130.github.io/Portfolio/" target="_blank" rel="noopener noreferrer">
-                <button>
-                  {t.demo}
-                  <FiExternalLink
-                    size={24}
-                    style={{ marginLeft: "4px", verticalAlign: "middle" }}
-                  />
-                </button>
-              </a>
-            </div>
-          </div>
-
-          {/* Proyecto 4 - En construcción */}
-          <div className="project-card">
-            <img
-              src={`${process.env.PUBLIC_URL}/loading.gif`}
-              alt="En construcción"
-              style={{ height: "133px", width: "50%", objectFit: "cover" }}
-            />
-            <h3>{t.project4}</h3>
-            <div className="project-languages">
-              <span className="language-badge kotlin">
-                <SiKotlin style={{ marginRight: "6px", verticalAlign: "middle" }} />
-                Kotlin
-              </span>
-            </div>
-            <p>{t.project4Desc}</p>
-            <div className="project-buttons">
-              <button className="button1" disabled style={{ cursor: "not-allowed" }} title="Proyecto en construcción">
-                Código
-                <MdDescription
-                  size={24}
-                  style={{
-                    color: button1IconColor,
-                    marginLeft: "4px",
-                    verticalAlign: "middle",
-                  }}
-                />
-              </button>
-              <button disabled style={{ cursor: "not-allowed", marginLeft: "8px" }} title="Proyecto en construcción">
-                Demo
-                <FiExternalLink
-                  size={24}
-                  style={{ marginLeft: "4px", verticalAlign: "middle" }}
-                />
-              </button>
-            </div>
-          </div>
-
         </div>
-      </div>
-    </section>
+      </section>
 
       <section className="contact-me-section" id="contact">
         <div className="contact-me-content">
